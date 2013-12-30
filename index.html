@@ -2,127 +2,54 @@
 <head>
 <title></title>
 <link rel="stylesheet" type="text/css" href="animateClaro.css">
-<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-<style type="text/css">
-body
-{
-	margin: 0px;
-}
-	.contenedor
-	{
-		background: #f2f3f3;
-		width: 1000px;
-		height: 800px;
-		margin: 0 auto;
-		box-shadow: 0px 5px 8px gray;
-		text-align: center;
-		padding-top: 40px;
-
-	}
-	#nav
-	{
-		 background-color: #21242c;
-		 color:#fff;
-		 text-align: center;
-		 height: 400px;
-		 width: 100%;
-		 z-index: 20;
-		 position: absolute;
-		 top:-400px;
-		
-	}
-	#navPadre
-	{
-	 background-color: #21242C;
-	 text-align: center;
-	 width: 100%;
-	  height: 30px;
-	  color:#fff;
-	  z-index: 40;
-	  position: absolute;
-	}
-	#navPadre button
-	{
-		padding: 2px 5px 2px 5px;
-	}
-	#navPadre button:hover
-	{
-		 cursor: pointer;
-		 background-color: #7D7DE0;
-		 color:#fff;
-		 font-weight:bold;
-	}
-
-.cajas
-{
-	width: 180px;
-	height: 100px;
-	background: gray;
-	float:  left;
-	margin-left: 80px;
-	margin-top: 60px;
-}
-.cajas:hover
-{
-	cursor: pointer; 
-    box-shadow: 0px 10px 10px gray;
-    background-color: rgb(206, 194, 194);
-}
-#barrita
-{
-	 width: 200px;
-	 height: 6px;
-	 margin: 0 auto;
-	 background-color:  rgb(130, 214, 130);
-}
-</style>
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="funciones.js"></script>
+<link rel="stylesheet" href="estilo.css">
 <script type="text/javascript">
-	$(document).on('ready',function(){
-		$('#barrita').hide(10);
-		var band = 0;
-		$('#boton').on('click',function(){		
-			if(band ==0){
-						$('#nav').animate({'top':'30px'},400);	
-						$('#nav').animate({"height": "-=60px"}, 150);
-						$('#barrita').show(900);
-						band++;
-				}else{
-					
-					$('#nav').animate({"height": "+=60px"}, 400);
-					$('#nav').animate({'top':'-400px'},400);	
-					$('#barrita').hide(400);
-					band--;
-				}		
-		});
+        $(function(){
+                
+                // lo ideal seria un toggle botton para eliminar esa bandera
+                var band = 0;
+                $('#barrita').hide();
+                $('#boton').on('click',function(){      
+                    if(band){
+                        
+                        $("#nav").downBarra(400,400,200);
+                        
+                        band--;
 
-	
-	});
+                    }else{
+                       $("#nav").UpBarra(400,150,900);
+                        band++;     
+                    }                
+            });        
+        });
 </script>
 </head>
 <body>
 <nav id="navPadre">
-		desliza hacia abajo <button id="boton">click</button>
+                desliza hacia abajo <button id="boton">click</button>
 </nav>
-	<div id="nav" class="">
-	<div id="barrita"></div>
-	<br/>
-		<input id="bandera" type="hidden" value="0" />
-		<h3>Prueba de div deslizandose con animate()</h3>
-		<div class="cajas">	
-		<a href="prueba.html"> enlace</a>
-		</div>
-		<div class="cajas">	
-		</div>
-		<div class="cajas">	
-		</div>
-		<div class="cajas">	
-		</div>
-		<div class="cajas">	
-		</div>
-		
-	</div>
+        <div id="nav" class="">
+        <div id="barrita"></div>
+        <br/>
+                <input id="bandera" type="hidden" value="0" />
+                <h3>Prueba de div deslizandose con animate()</h3>
+                <div class="cajas">        
+                <a href="prueba.html"> enlace</a>
+                </div>
+                <div class="cajas">        
+                </div>
+                <div class="cajas">        
+                </div>
+                <div class="cajas">        
+                </div>
+                <div class="cajas">        
+                </div>
+                
+        </div>
 <div class="contenedor">
-	<h1>Titulo de la pagina</h1>
+        <h1>Titulo de la pagina</h1>
 </div>
 
 </body>
